@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Argentina's natural capital by place</title>
+<style>
+.viz-root{color-scheme:light;--surface:#fcfcfb;--t1:#0b0b0b;--t2:#52514e;--t3:#8a8984;--map:#e9e8e4;--mapedge:#ffffff;--hum:#d6d5d0;--pro:#bdbcb6;--nfa:#9f9e98;--ren:#2a78d6;--non:#eb6834;--panel:#f3f2ef;--rule:#d6d5d0}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .viz-root{color-scheme:dark;--surface:#1a1a19;--t1:#ffffff;--t2:#c3c2b7;--t3:#8f8e87;--map:#2c2c2a;--mapedge:#1a1a19;--hum:#4a4945;--pro:#5e5d58;--nfa:#76756f;--ren:#3987e5;--non:#d95926;--panel:#242423;--rule:#3a3a37}}
+:root[data-theme="dark"] .viz-root{color-scheme:dark;--surface:#1a1a19;--t1:#ffffff;--t2:#c3c2b7;--t3:#8f8e87;--map:#2c2c2a;--mapedge:#1a1a19;--hum:#4a4945;--pro:#5e5d58;--nfa:#76756f;--ren:#3987e5;--non:#d95926;--panel:#242423;--rule:#3a3a37}
+html,body{margin:0;background:#fcfcfb}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) body{background:#1a1a19}}
+:root[data-theme="dark"] body{background:#1a1a19}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.viz-root{background:var(--surface);color:var(--t1);max-width:1040px;margin:0 auto;padding:20px 16px 24px;box-sizing:border-box}
+h2{font-size:15px;margin:0 0 8px;font-weight:650}
+.sub{color:var(--t2);font-size:13px;margin:0 0 14px}
+.barwrap svg{width:100%;height:auto;display:block;overflow:visible}
+.seg{cursor:pointer;outline:none}
+.seg.hum{fill:var(--hum)}.seg.pro{fill:var(--pro)}.seg.ren{fill:var(--ren)}.seg.nfa{fill:var(--nfa)}.seg.non{fill:var(--non)}
+.seg:hover,.seg:focus{stroke:var(--t1);stroke-width:2}
+.blab{font-size:15px;fill:var(--t1)}.mob{font-size:14px;fill:var(--t2)}.brule{stroke:var(--t3);stroke-width:1.2}
+.main{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;margin-top:22px;align-items:start}
+@media (max-width:720px){.main{grid-template-columns:1fr}}
+.map svg{width:100%;height:auto;max-height:640px;display:block}
+.map path{fill:var(--map);stroke:var(--mapedge);stroke-width:1.2}
+.pt{cursor:pointer;outline:none}.pt .hit{fill:transparent}
+.pt .dot{stroke:var(--surface);stroke-width:2.5;transition:r .12s}
+.pt.ren .dot{fill:var(--ren)}.pt.non .dot{fill:var(--non)}
+.pt:hover .dot,.pt:focus .dot,.pt.on .dot{r:13;stroke:var(--t1);stroke-width:2}
+.panel{background:var(--panel);border-radius:8px;padding:16px 18px;min-height:150px;position:sticky;top:12px}
+.panel .k{font-size:12px;letter-spacing:.02em;color:var(--t2);margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.sw{width:10px;height:10px;border-radius:50%;display:inline-block}
+.panel .n{font-size:18px;font-weight:650;margin:0 0 6px}
+.panel .d{font-size:14.5px;line-height:1.45;margin:0 0 10px;color:var(--t1)}
+.panel .s{font-size:12px;color:var(--t2)} .panel a{color:var(--ren)}
+.legend{display:flex;gap:18px;font-size:13px;color:var(--t2);margin:14px 0 0;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+details{margin-top:18px;font-size:13px;color:var(--t2)} summary{cursor:pointer}
+table{border-collapse:collapse;width:100%;margin-top:8px;font-size:13px;color:var(--t1)} td{border-top:1px solid var(--rule);padding:6px 6px;vertical-align:top} td a{color:var(--ren)}
+.src{font-size:11.5px;color:var(--t3);margin-top:16px;line-height:1.45}
+</style></head>
+<body><div class="viz-root">
+<h2>Wealth per person in Argentina, 2018: US$93,462</h2>
+<p class="sub">Hover over or tap any part of the bar or any marker on the map for details.</p>
+<div class="barwrap"><svg viewBox="0 -4 1000 96" role="img" aria-label="Argentina's wealth per person split into human capital 70%, produced capital 21%, renewable natural capital 6.5%, net foreign assets 1.5% and non-renewable natural capital 0.3%">
+%%BAR%%
+<text class="blab" x="352" y="23" text-anchor="middle" pointer-events="none">Human capital 70%</text>
+<text class="blab" x="811" y="23" text-anchor="middle" pointer-events="none">Produced 21%</text>
+<line class="brule" x1="3" x2="702" y1="50" y2="50"/><text class="mob" x="352" y="70" text-anchor="middle">Partly mobile</text>
+<line class="brule" x1="707" x2="914" y1="50" y2="50"/><text class="mob" x="811" y="70" text-anchor="middle">Mostly fixed once built</text>
+<line class="brule" x1="919" x2="980" y1="50" y2="50"/><text class="mob" x="950" y="70" text-anchor="middle">Fixed</text>
+</svg></div>
+<div class="main">
+ <div class="map"><svg viewBox="-20 -20 %%W2%% %%H2%%" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Map of Argentina with markers for eleven places">
+ <g>%%PATHS%%</g>
+ <g>%%DOTS%%</g>
+ </svg></div>
+ <div>
+  <div class="panel" id="panel" aria-live="polite">
+   <p class="k">Renewable natural capital is 6.5% of the national figure</p>
+   <p class="n">One national number, many different places</p>
+   <p class="d">The World Bank reports Argentina’s natural capital for the country as a whole. The markers show some of the provinces where it is actually found, and what each one supplies.</p>
+   <p class="s">Select a marker to see each place.</p>
+  </div>
+  <div class="legend"><span><i class="sw" style="background:var(--ren)"></i>Renewable natural capital</span><span><i class="sw" style="background:var(--non)"></i>Non-renewable natural capital</span></div>
+ </div>
+</div>
+<details><summary>Show all places as a table</summary><table><tbody>%%ROWS%%</tbody></table></details>
+<p class="src">Sources: World Bank, Wealth Accounts (Changing Wealth of Nations, 2024 release), Argentina 2018, current US$ per person; Crescenzi and Harman (2026), <i>Green Global Value Chains for Sustainable Development</i>; place sources as listed. Mobility labels are the authors’. Boundaries: Natural Earth. Markers show approximate locations.</p>
+</div>
+<script>
+const D=%%DATA%%;
+const panel=document.getElementById('panel');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let pinned=null;
+function showPlace(id){const d=D[id];const col=d.type.startsWith('Renewable')?'var(--ren)':'var(--non)';
+ panel.innerHTML=`<p class="k"><i class="sw" style="background:${col}"></i>${esc(d.type)}</p><p class="n">${esc(d.name)}</p><p class="d">${esc(d.desc)}</p><p class="s">Source: <a href="${d.url}" target="_blank" rel="noopener">${esc(d.src)}</a></p>`;}
+function showSeg(el){panel.innerHTML=`<p class="k">Part of national wealth</p><p class="n">${esc(el.dataset.seg)}</p><p class="d">US$${el.dataset.val} per person, ${el.dataset.pct}% of the total.</p><p class="d">${esc(el.dataset.mob)}</p><p class="s">Source: World Bank, Wealth Accounts (2024 release)</p>`;}
+document.querySelectorAll('.pt').forEach(p=>{
+ const id=p.dataset.id;
+ p.addEventListener('mouseenter',()=>{if(!pinned)showPlace(id)});
+ p.addEventListener('focus',()=>showPlace(id));
+ p.addEventListener('click',()=>{document.querySelectorAll('.pt.on').forEach(q=>q.classList.remove('on'));if(pinned===id){pinned=null}else{pinned=id;p.classList.add('on');showPlace(id)}});
+ p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();p.click()}});
+});
+document.querySelectorAll('.seg').forEach(s=>{s.addEventListener('mouseenter',()=>{if(!pinned)showSeg(s)});s.addEventListener('focus',()=>showSeg(s));s.addEventListener('click',()=>showSeg(s));});
+</script>
+</body></html>
